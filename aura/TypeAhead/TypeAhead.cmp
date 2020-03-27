@@ -1,0 +1,29 @@
+<aura:component controller="TypeAheadController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="sObjectName" type="String" default="Account" />
+    <aura:attribute name="sObjectList" type="sObject[]" />
+    <aura:attribute name="fieldName" type="String"/>
+    <aura:attribute name="lstSearchValue" type="sObject[]" />
+    <aura:attribute name="SelTypeAheadName" type="string" default=""/>
+    <aura:attribute name="SelTypeAheadId" type="string" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.callQuery}" />
+    <aura:registerEvent name="cmpEvent" type="c:EventChildToParent"/>
+    
+    <lightning:input label="{!v.fieldName}" 
+                        name="TypeAhead"
+                        aura:id="TypeAhead" 
+                        value="{!v.SelTypeAheadName}"
+                        onchange="{!c.searchValues}"/>
+    
+        <aura:renderIf isTrue="{!v.SelTypeAheadName.length > 0}">	 
+            <div aura:id="idTypeAheadBox">
+                <ul>
+                    <aura:iteration items="{!v.lstSearchValue}" var="ac">
+                        <li class="slds-listbox__item">
+                            <a data-name="{!ac.Name}" id="{!ac.Id}" onclick="{!c.selectValue}">{!ac.Name}</a>
+                        </li>
+                    </aura:iteration>
+                </ul> 	 
+            </div>
+        </aura:renderIf>
+
+</aura:component>

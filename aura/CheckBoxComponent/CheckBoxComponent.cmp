@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<aura:attribute type="List" name="selectedCheckBoxes" default="[]" />
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem padding="around-small" size="6">
+            <lightning:input type="checkbox" label="apps" name="apps" aura:id="apps" value="Apps" onchange="{! c.callCheckboxMethod }" />
+            <lightning:input type="checkbox" label="product" name="product" aura:id="product" value="Product" onchange="{! c.callCheckboxMethod }" />    
+            <lightning:input type="checkbox" label="service" name="service" aura:id="service" value="Service" onchange="{! c.callCheckboxMethod }" />
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

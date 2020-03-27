@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <lightning:card iconName="custom:custom19" title="Edit lightning:recordForm">
+        <div class="slds-p-left_large slds-p-right_medium">	
+            <lightning:recordForm
+        recordId="0011U0000042tbTQAQ"
+        objectApiName="Account"
+        layoutType="Full"
+        columns="2"
+        mode="view" />
+            
+        </div>
+    </lightning:card>
+    
+</aura:component>

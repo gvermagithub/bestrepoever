@@ -1,0 +1,21 @@
+<aura:component controller="API_WeatherMap" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="apiresponse" type="WeatherAPIResponseResult" />
+    <aura:attribute name="inputzip" type="String" />
+    <aura:attribute name="inputcountry" type="String" />
+    	<div class="row">
+            <h1 class="header">Weather APP</h1>
+    		<br/>
+            <lightning:layout >
+            <lightning:layoutItem padding="around-small">
+            <lightning:input name="input1" aura:id="inputzip" label="Enter zip code" placeholder = "type your zip here.." value="{!v.inputzip}" required="true" messageWhenValueMissing = "Zip Code is Mandatory" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+            <lightning:input name="input2" aura:id="inputcountry" label="Enter Country code" placeholder = "type your country here.." value="{!v.inputcountry}" messageWhenValueMissing = "2 Digit Country Code is Mandatory"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+     		<lightning:button variant="brand" label="Search" title="Search" onclick="{!c.callAPI}" />
+                </lightning:layoutItem></lightning:layout>
+    	</div> 
+		Data: {!v.apiresponse.name}
+    Data: {!v.apiresponse.weather[0].description}
+</aura:component>

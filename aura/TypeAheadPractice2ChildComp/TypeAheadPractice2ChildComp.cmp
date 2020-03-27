@@ -1,0 +1,15 @@
+<aura:component controller="TypeaheadPractice2Controller" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+	<aura:attribute name="ObjectName" type="String" default="" access="public"/>
+    <aura:attribute name="SearchString" type="String" default="" access="public"/>
+    <aura:attribute name="sObject" type="sObject" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="appEvent" type="c:EventChildToParent"/>
+    <aura:method name="callMethodFromParent" action="{!c.doInit}" access="PUBLIC" /> 
+    <h1>This iteration is for {!v.ObjectName}</h1>
+    <br/>
+    <aura:iteration items="{!v.sObject}" var="item">
+        <ul>
+          <li>{!item.Name}</li>
+        </ul>
+    </aura:iteration>
+</aura:component>
